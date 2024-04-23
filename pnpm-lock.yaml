@@ -23,6 +23,9 @@ dependencies:
   autoprefixer:
     specifier: 10.4.16
     version: 10.4.16(postcss@8.4.31)
+  date-fns:
+    specifier: ^3.6.0
+    version: 3.6.0
   eslint:
     specifier: 8.51.0
     version: 8.51.0
@@ -718,6 +721,10 @@ packages:
 
   /damerau-levenshtein@1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
+    dev: false
+
+  /date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
     dev: false
 
   /debug@3.2.7:

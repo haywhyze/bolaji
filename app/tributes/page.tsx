@@ -1,5 +1,6 @@
 import React from 'react';
 import { sql } from '@vercel/postgres';
+import { formatDistanceToNow } from 'date-fns';
 import { seed } from '@/lib/seed';
 
 const TributesPage: React.FC = async () => {
@@ -28,15 +29,18 @@ const TributesPage: React.FC = async () => {
   return (
     <main className='p-4'>
       <h1 className='text-center text-4xl font-bold my-6'>Tributes</h1>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 min-h-screen'>
         {tributes.map((tribute: any) => (
           <div
             key={tribute.id}
             className='max-w-sm rounded overflow-hidden shadow-lg p-4'
           >
             <h2 className='font-bold text-xl mb-2'>{tribute.name}</h2>
-            <p>{tribute.relationship}</p>
+            <p className='italic text-lg'>{tribute.relationship}</p>
             <p className='text-gray-700 text-base'>{tribute.message}</p>
+            <p className='text-gray-400 text-sm'>
+              {formatDistanceToNow(new Date(tribute.created_at))} ago
+            </p>
           </div>
         ))}
       </div>

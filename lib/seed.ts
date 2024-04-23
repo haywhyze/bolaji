@@ -12,18 +12,7 @@ export async function seed() {
     );
     `
 
-  console.log(`Created "tributes" table`);
-
-  // Insert a single tribute from Yusuf Abdulkarim
-  const tribute = await sql`
-      INSERT INTO tributes (name, relationship, message)
-      VALUES ('Yusuf Abdulkarim', 'Son\'s Friend', 'I did not know him much, but being his son\'s friend, I knew how much he looked up to him and the guidance he provided for my friend to be the man he is now.')
-  `;
-
-  console.log(`Seeded tribute from Yusuf Abdulkarim`);
-
   return {
     createTable,
-    tribute,
   }
 }

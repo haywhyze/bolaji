@@ -3,9 +3,9 @@ import { sql } from '@vercel/postgres';
 import { formatDistanceToNow } from 'date-fns';
 import { seed } from '@/lib/seed';
 
+export const dynamic = 'force-dynamic'
 const TributesPage: React.FC = async () => {
   let data: any;
-  let startTime = Date.now();
 
   try {
     data = await sql`SELECT * FROM tributes`;
@@ -16,7 +16,6 @@ const TributesPage: React.FC = async () => {
       );
       // Table is not created yet
       await seed();
-      startTime = Date.now();
       data = await sql`SELECT * FROM tributes`;
     } else {
       throw e;
@@ -24,7 +23,6 @@ const TributesPage: React.FC = async () => {
   }
 
   const { rows: tributes } = data;
-  const duration = Date.now() - startTime;
 
   return (
     <main className='p-4'>
